@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
 import { checkValidateDataSU, checkValidateDataSI } from "../utils/validate";
+import { BG_IMAGE } from "../utils/constants";
 
 import {
   createUserWithEmailAndPassword,
@@ -101,10 +102,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute ">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/d1532433-07b1-4e39-a920-0f08b81a489e/db6c3334-0569-4cf8-af49-e07405d94902/NO-en-20231120-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-          alt="background-img"
-        />
+        <img src={BG_IMAGE} alt="background-img" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
