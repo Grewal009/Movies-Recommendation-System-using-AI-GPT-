@@ -42,11 +42,11 @@ const Header = () => {
 
   return (
     <div className="flex">
-      <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 flex w-full justify-between items-center">
+      <div className="absolute px-8 py-2 bg-gradient-to-b from-black to-90% z-10 flex w-full justify-between items-center">
         <img className="w-44 " src={LOGO} alt="logo" />
         {user && (
           <div className="flex items-center">
-            <p className="mx-5 font-bold text-black text-2xl">
+            <p className="mx-5 font-bold text-slate-200 text-2xl">
               {user?.displayName}
             </p>
             <button
