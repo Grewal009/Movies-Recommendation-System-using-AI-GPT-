@@ -19,3 +19,5 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "norsk", name: "Norsk" },
   { identifier: "hindi", name: "Hindi" },
 ];
+
+export const OPENAI_GPT = process.env.REACT_APP_OPENAI_KEY;
