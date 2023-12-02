@@ -73,7 +73,7 @@ const GptSearchBar = () => {
           placeholder={lang[language].searchPlaceholderText}
         />
         <button
-          className="col-span-12 mt-2  py-1 w-full mx-auto md:col-span-2  bg-red-600 text-white rounded-md md:py-1 md:px-2 md:m-0"
+          className="col-span-12 mt-2 py-1  md:col-span-2  bg-red-600 text-white rounded-md md:py-1 md:px-2 md:m-0"
           onClick={handleGptSearchClick}
         >
           {/* lang.language.searchBtn gives error to make it dynamic use [] for language*/}
