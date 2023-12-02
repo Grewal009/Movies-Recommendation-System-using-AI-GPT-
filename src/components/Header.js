@@ -57,14 +57,14 @@ const Header = () => {
 
   return (
     <div className="flex">
-      <div className="absolute px-8 py-2 bg-gradient-to-b from-black to-90% z-10 flex w-full justify-between items-center">
-        <img className="w-44 " src={LOGO} alt="logo" />
+      <div className="absolute px-8 py-2 bg-gradient-to-b from-black to-90% z-10 flex w-full justify-between items-center flex-col md:flex-row ">
+        <img className="w-36 md:w-44 " src={LOGO} alt="logo" />
         {user && (
-          <div className="flex items-center">
+          <div className="flex gap-4 md:gap-8">
             {gptSearchBtn && (
               <select
                 onChange={handleLanguageChange}
-                className="p-2 bg-gray-800 text-white rounded-lg"
+                className="w-20  py-1 font-medium bg-gray-800 text-slate-300 rounded-lg hover:bg-slate-700 cursor-pointer"
               >
                 {SUPPORTED_LANGUAGES.map((lang) => (
                   <option key={lang.identifier} value={lang.identifier}>
@@ -75,7 +75,7 @@ const Header = () => {
             )}
             <button
               onClick={handleGptSearchClick}
-              className="bg-green-700 py-2 px-3 mx-2 font-bold rounded-lg"
+              className="w-20 bg-green-800  py-1 font-medium rounded-lg text-slate-300 hover:bg-green-700"
             >
               {gptSearchBtn ? "Home" : "GPT Search"}
             </button>
@@ -83,7 +83,7 @@ const Header = () => {
               {user?.displayName}
             </p> */}
             <button
-              className="w-20 h-10 rounded-lg font-bold bg-slate-300 hover:bg-slate-200  "
+              className="w-20 py-1 rounded-lg font-medium bg-slate-300 text-gray-800 hover:bg-slate-200 md:mr-4 "
               onClick={handleSignOut}
             >
               Signout

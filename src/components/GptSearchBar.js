@@ -63,17 +63,17 @@ const GptSearchBar = () => {
   return (
     <div className="flex justify-center pt-28 pb-10 ">
       <form
-        className="w-[80%] grid grid-cols-12 p-2 bg-gray-800 rounded-lg"
+        className="w-full grid grid-cols-12 p-2 bg-gray-800 md:rounded-lg md:w-[60%] "
         onSubmit={(e) => e.preventDefault()}
       >
         <input
           ref={searchText}
-          className="py-2 px-3 mr-2 rounded-md col-span-10"
+          className="py-1 px-2 text-gray-800 rounded-md col-span-12 md:col-span-10  md:px-2 md:mr-2 md:font-bold "
           type="text"
           placeholder={lang[language].searchPlaceholderText}
         />
         <button
-          className="col-span-2  bg-red-600 text-white rounded-md"
+          className="col-span-12 mt-2  py-1 w-full mx-auto md:col-span-2  bg-red-600 text-white rounded-md md:py-1 md:px-2 md:m-0"
           onClick={handleGptSearchClick}
         >
           {/* lang.language.searchBtn gives error to make it dynamic use [] for language*/}
