@@ -64,7 +64,7 @@ const Header = () => {
             {gptSearchBtn && (
               <select
                 onChange={handleLanguageChange}
-                className="w-20  py-1 font-medium bg-gray-800 text-slate-300 rounded-lg hover:bg-slate-700 cursor-pointer"
+                className="w-[86px]  py-1 font-medium bg-gray-800 text-slate-300 rounded-lg hover:bg-slate-700 cursor-pointer"
               >
                 {SUPPORTED_LANGUAGES.map((lang) => (
                   <option key={lang.identifier} value={lang.identifier}>
@@ -75,7 +75,7 @@ const Header = () => {
             )}
             <button
               onClick={handleGptSearchClick}
-              className="w-20 bg-green-800  py-1 font-medium rounded-lg text-slate-300 hover:bg-green-700"
+              className="w-32 bg-green-800  py-1 font-medium rounded-lg text-slate-300 hover:bg-green-700"
             >
               {gptSearchBtn ? "Home" : "GPT Search"}
             </button>
