@@ -1,8 +1,27 @@
-# Getting Started with Create React App
+# Movies Recommendation System with AI(GPT)
+
+# Features
+
+- Log-in/Sign-up
+  - Sign-in /Sign-up Form
+  - Redirect to Browse Page
+- Browse (after authentication)
+  - Header
+  - Main Movie
+    - Tailer in Background
+    - Title & Description
+    - MovieSuggestions
+      - MovieLists
+        - (MovieCard \* n)
+- NetflixGPT
+  - Search Bar
+  - Movie Suggestions
+
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
