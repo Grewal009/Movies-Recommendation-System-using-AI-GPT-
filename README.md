@@ -1,5 +1,7 @@
 # Movies Recommendation System using AI(GPT)
 
+## Live Demo : [click here](https://netflixaigpt.netlify.app)
+
 # Features
 
 - Log-in/Sign-up
