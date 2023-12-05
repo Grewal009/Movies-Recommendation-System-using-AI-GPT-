@@ -1,4 +1,4 @@
-# Movies Recommendation System with AI(GPT)
+# Movies Recommendation System using AI(GPT)
 
 # Features
 
