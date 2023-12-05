@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import lang from "../utils/languageConstant";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import openai from "../utils/openai";
 import { API_OPTIONS } from "../utils/constants";
 import { addGptMovieResult } from "../utils/gptSlice";
+import Shimmer from "./Shimmer";
 
 const GptSearchBar = () => {
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const searchText = useRef(null);
   const language = useSelector((store) => store.config.configLang);
@@ -24,6 +26,7 @@ const GptSearchBar = () => {
   };
 
   const handleGptSearchClick = async () => {
+    setLoading(true);
     console.log(searchText.current.value);
 
     //make a call to GPT API and get movies result
@@ -55,32 +58,36 @@ const GptSearchBar = () => {
     //it will only finish once my all promises are resolved
     const tmdbResult = await Promise.all(promiseArray);
     console.log("tmdbResult : ", tmdbResult);
+    setLoading(false);
     dispatch(
       addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResult })
     );
   };
 
   return (
-    <div className="flex justify-center pt-28 pb-10 ">
-      <form
-        className="w-full grid grid-cols-12 p-2 bg-gray-800 md:rounded-lg md:w-[60%] "
-        onSubmit={(e) => e.preventDefault()}
-      >
-        <input
-          ref={searchText}
-          className="py-1 px-2 text-gray-800 rounded-md col-span-12 md:col-span-10  md:px-2 md:mr-2 md:font-bold "
-          type="text"
-          placeholder={lang[language].searchPlaceholderText}
-        />
-        <button
-          className="col-span-12 mt-2 py-1  md:col-span-2  bg-red-600 text-white rounded-md md:py-1 md:px-2 md:m-0"
-          onClick={handleGptSearchClick}
+    <>
+      <div className="flex justify-center pt-28 pb-10 ">
+        <form
+          className="w-full grid grid-cols-12 p-2 bg-gray-800 md:rounded-lg md:w-[60%] "
+          onSubmit={(e) => e.preventDefault()}
         >
-          {/* lang.language.searchBtn gives error to make it dynamic use [] for language*/}
-          {lang[language].searchBtn}
-        </button>
-      </form>
-    </div>
+          <input
+            ref={searchText}
+            className="py-1 px-2 text-gray-800 rounded-md col-span-12 md:col-span-10  md:px-2 md:mr-2 md:font-bold "
+            type="text"
+            placeholder={lang[language].searchPlaceholderText}
+          />
+          <button
+            className="col-span-12 mt-2 py-1  md:col-span-2  bg-red-600 text-white rounded-md md:py-1 md:px-2 md:m-0"
+            onClick={handleGptSearchClick}
+          >
+            {/* lang.language.searchBtn gives error to make it dynamic use [] for language*/}
+            {lang[language].searchBtn}
+          </button>
+        </form>
+      </div>
+      {loading && <Shimmer />}
+    </>
   );
 };
 
